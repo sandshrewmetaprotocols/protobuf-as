@@ -1,27 +1,21 @@
 {
-  "compilerOptions": {
-    "lib": ["ES2021", "DOM"],
-    "target": "ESNext",
-    "module": "NodeNext",
-    "strict": true,
-    "outDir": "build",
-    "esModuleInterop": true,
-    "moduleResolution": "nodenext",
-    "declaration": true
-  },
-  "ts-node": {
-    "esm": true,
     "compilerOptions": {
-      "paths": {
-        "uvu": ["./node_modules/uvu"],
-      }  
-    }
-  },  
-  "include": [    
-    "src/**/*",
-    "tests/**/*"
-  ],
-  "exclude": [
-    "tests/__fixtures__/**/*"
-  ]
+        "allowUnusedLabels": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+	"resolveJsonModule": true,
+        "target": "es2020",
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "outDir": "./lib",
+        "declaration": true,
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "./src.ts/*"
+    ]
 }

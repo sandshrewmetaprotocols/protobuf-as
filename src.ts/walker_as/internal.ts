@@ -3,9 +3,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import changeCase from 'change-case';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // embedNamespace represents Decode, Encode and Size namespace name
 export const embedNamespace = "__proto";
 

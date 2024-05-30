@@ -2,9 +2,8 @@
   "name": "protobuf-as",
   "version": "1.0.1",
   "description": "Minimalistic protobuf compiler plugin which generates self-enclosed AssemblyScript code",
-  "main": "build/main.js",
-  "types": "build/main.d.ts",
-  "type": "module",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -52,9 +51,7 @@
   },
   "scripts": {
     "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.release.json",
-    "lint": "eslint . --ext .ts,.tsx",
+    "build": "tsc",
     "test:gen-fixtures": "yarn build && ts-node-esm scripts/gen-fixtures.ts",
     "test": "./node_modules/.bin/c8 yarn run ts-node --project tsconfig.json node_modules/.bin/uvu tests test --color",
     "debug:gen-teleport": "mkdir -p tmp/assembly && protoc -I/$(go env GOPATH)/src/github.com/gravitational/teleport/api/types -I$(go env GOPATH)/src/github.com/gravitational/teleport/api/types/wrappers -I$(go env GOPATH)/src/github.com/gogo/protobuf/ -I$(go env GOPATH)/src --plugin=./bin/protoc-gen-as --as_out=tmp/assembly --as_opt targetFileName=teleport.ts:mode=multi:disablePrettier=false types.proto events/events.proto && yarn asc tmp/assembly/teleport.ts --bindings esm -o tmp/teleport.wasm -t tmp/teleport.wat"

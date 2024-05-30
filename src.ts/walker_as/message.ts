@@ -17,7 +17,7 @@ export class Message {
             return
         }
 
-        const extPath = normalize(join(dirname(fileURLToPath(import.meta.url)), "../../assembly/ext"))
+        const extPath = normalize(join(__dirname, "../../assembly/ext"))
         const exts = readdirSync(extPath)
         
         this.addExt(extPath, exts)
