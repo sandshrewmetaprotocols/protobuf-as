@@ -1,6 +1,6 @@
 {
   "name": "protobuf-as",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimalistic protobuf compiler plugin which generates self-enclosed AssemblyScript code",
   "main": "build/main.js",
   "types": "build/main.d.ts",
