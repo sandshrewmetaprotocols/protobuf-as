@@ -9,6 +9,7 @@ export declare class Decode {
     private globals;
     private options;
     private decoder;
+    decodeType: string;
     constructor(p: Writer, globals: GlobalsRegistry, options: Options);
     start(message: decorated.Message): void;
     begin(): void;

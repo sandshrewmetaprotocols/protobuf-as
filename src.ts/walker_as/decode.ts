@@ -1,4 +1,5 @@
 import { decorated } from '../proto/index.js';
+
 import { Writer, GlobalsRegistry } from './index.js';
 import { relativeName, embedNamespace } from './internal.js';
 import { Field } from "./field.js";
@@ -11,6 +12,7 @@ import { getTypeInfo, TypeInfo } from './type_info.js';
  */
 export class Decode {
     private decoder = 'SafeDecoder';
+    public decodeType: string = "Type";
 
     constructor(private p: Writer, private globals: GlobalsRegistry, private options:Options) {
         this.decoder = [embedNamespace, "SafeDecoder"].join(".");
@@ -18,6 +20,7 @@ export class Decode {
 
     start(message: decorated.Message) {
         const t = relativeName(message.relativeName);
+	this.decodeType = t;
 
         this.p(`  
             // Decodes ${t} from an ArrayBuffer
@@ -39,6 +42,7 @@ export class Decode {
     end() {
         this.p(`
             ${this.endMessageDecode()}
+	    if (decoder.invalid()) return changetype<${this.decodeType}>(0);
             return obj;
         `);
     }
