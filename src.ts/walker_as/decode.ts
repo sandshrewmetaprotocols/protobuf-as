@@ -10,10 +10,10 @@ import { getTypeInfo, TypeInfo } from './type_info.js';
  * Generates decode() method
  */
 export class Decode {
-    private decoder = 'Decoder';
+    private decoder = 'SafeDecoder';
 
     constructor(private p: Writer, private globals: GlobalsRegistry, private options:Options) {
-        this.decoder = [embedNamespace, "Decoder"].join(".");
+        this.decoder = [embedNamespace, "SafeDecoder"].join(".");
     }
 
     start(message: decorated.Message) {
