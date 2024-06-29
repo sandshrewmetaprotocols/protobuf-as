@@ -1,7 +1,7 @@
 import { decorated, named } from '../proto/index.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import changeCase from 'change-case';
+import { snakeCase } from 'change-case';
 
 // embedNamespace represents Decode, Encode and Size namespace name
 export const embedNamespace = "__proto";
@@ -48,7 +48,7 @@ export function comment(obj: decorated.Commented): string {
 
 // Converts namespace to ts file name
 export function namespaceToFileName(obj: decorated.Namespace):string {
-    return obj.id.split(".").map(v => changeCase.snakeCase(v)).join("/")
+    return obj.id.split(".").map(v => snakeCase(v)).join("/")
 }
 
 // Returns relative component of the ts file

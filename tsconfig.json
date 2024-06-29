@@ -5,7 +5,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
 	"resolveJsonModule": true,
-        "target": "es2020",
+        "target": "es2017",
         "noImplicitAny": false,
         "esModuleInterop": true,
         "sourceMap": true,
